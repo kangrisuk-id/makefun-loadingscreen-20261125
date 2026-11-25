@@ -25,11 +25,9 @@ def main() -> None:
         raise SystemExit("tip is whitespace-only")
     out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
     os.makedirs(out_dir, exist_ok=True)
-    os.chmod(out_dir, 0o755)
     path = os.path.join(out_dir, "entry.txt")
     with open(path, "w", encoding="utf-8", newline="") as f:
         f.write(TIP)
-    os.chmod(path, 0o644)
     print(f"wrote {path}: {len(TIP)} characters, {len(TIP.encode('utf-8'))} bytes")
 
 
